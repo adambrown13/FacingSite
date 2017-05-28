@@ -94,7 +94,10 @@ BasicGame.Menu.prototype.update = function () {
 	if (this.selected && !this.selectionComplete) {
 		this.checkMenuCollision();
 		if (this.snake[0].x > this.game.width) {
-			if (this.selected == "About Adam Brown") {
+			if (this.selected == "Classic Snake") {
+				this.game.state.start("Conservatism")
+			}
+			else if (this.selected == "About Adam Brown") {
 				window.location = "http://www.adamnickbrown.com/";
 			}
 			else {
