@@ -22,7 +22,7 @@ BasicGame.Menu.prototype.create = function () {
 		this.appleSFX.play(0); 
 	},this);
 
-	this.TITLE = "SNAKISMS";
+	this.TITLE = "ADAM'S PROJECTS";
 	this.SNAKE_TICK = 0.02;
 
 	this.createMenu();
