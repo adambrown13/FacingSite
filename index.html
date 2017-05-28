@@ -1,17 +1,55 @@
-<HTML>
-<HEAD>
-<TITLE>Your Title Here</TITLE>
-</HEAD>
-<BODY BGCOLOR="FF5A5A">
-<CENTER><H1>Adam Brown's Homepage for his Portofolio and Other Assorted Works</H1> </CENTER>
-<HR>
-<a href="aboutbrown.html">About Brown</a>
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Adam's Site</title>
+	<link rel="manifest" href="manifest.json">
+	<meta name="theme-color" content="#000000">
 
-<H1>This is a Header</H1>
-<H2>This is a Medium Header</H2>
-<P> This is a new paragraph!
-<P> <B>This is a new paragraph!</B>
-<BR> <B><I>This is a new sentence without a paragraph break, in bold italics.</I></B>
-<HR>
-</BODY>
-</HTML>
+	<script src="js/phaser.min.js"></script>
+	<script src="js/swipe.js"></script>
+
+	<script src="Boot.js"></script>
+	<script src="Preloader.js"></script>
+	<script src="snakes/Snake.js"></script>
+	<script src="Menu.js"></script>
+  
+	<script src="snakes/Conservatism.js"></script>
+</head>
+<style>
+body {
+	margin: 0;
+}
+</style>
+<body>
+
+	<div id="gameContainer"></div>
+
+	<script type="text/javascript">
+	window.onload = function() {
+		//	Create your Phaser game and inject it into the gameContainer div.
+		//	We did it in a window.onload event, but you can do it anywhere (requireJS load, anonymous function, jQuery dom ready, - whatever floats your boat)
+		var game = new Phaser.Game(480, 640, Phaser.AUTO, 'gameContainer');
+		//	Add the States your game has.
+		//	You don't have to do this in the html, it could be done in your Boot state too, but for simplicity I'll keep it here.
+		game.state.add('Boot', BasicGame.Boot);
+		game.state.add('Preloader', BasicGame.Preloader);
+		game.state.add('Menu', BasicGame.Menu);
+		game.state.add('Snake', BasicGame.Snake);
+		game.state.add('Conservatism', BasicGame.Conservatism);
+		//	Now start the Boot state.
+		game.state.start('Boot');
+	};
+	if('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('./sw.js')
+			.then(function(registration) {
+				console.log('Service Worker Registered');
+			});
+		navigator.serviceWorker.ready.then(function(registration) {
+			console.log('Service Worker Ready');
+		});
+	}
+	</script>
+
+</body>
+</html>
