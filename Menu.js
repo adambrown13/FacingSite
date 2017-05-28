@@ -1,27 +1,8 @@
 games = [
-	"Anthropomorphism",
-	"Apocalypticism",
-	"Asceticism",
-	"Capitalism",
-	"Casualism",
-	"Conservatism",
-	"Determinism",
-	"Dualism",
-	"Existentialism",
-	"Holism",
-	"Idealism",
-	"Monism",
-	"Narcissism",
-	"Nihilism",
-	"Optimism",
-	"Pessimism",
-	"Positivism",
-	"Post-Apocalypticism",
-	"Romanticism",
-	"Stoicism",
-	"Utilitarianism",
+	"Classic Snake",
+	
 	"",
-	"pippinbarr.com"
+	"About Adam Brown"
 ];
 
 BasicGame.Menu = function (game) {
@@ -113,11 +94,8 @@ BasicGame.Menu.prototype.update = function () {
 	if (this.selected && !this.selectionComplete) {
 		this.checkMenuCollision();
 		if (this.snake[0].x > this.game.width) {
-			if (this.selected == "Post-Apocalypticism") {
-				this.game.state.start("PostApocalypticism")
-			}
-			else if (this.selected == "pippinbarr.com") {
-				window.location = "http://www.pippinbarr.com/games/";
+			if (this.selected == "About Adam Brown") {
+				window.location = "http://www.adamnickbrown.com/";
 			}
 			else {
 				this.game.state.start(this.selected);
